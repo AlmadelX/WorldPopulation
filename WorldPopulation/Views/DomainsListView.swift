@@ -8,9 +8,10 @@ struct DomainsListView: View {
     }
     
     var body: some View {
-        List {
-            ForEach(domains) { domain in
-                
+        VStack {
+            ForEach(domains, id: \.label) { domain in
+                DomainRowView(domain: domain)
+                    .frame(width: UIScreen.main.bounds.width)
             }
         }
     }

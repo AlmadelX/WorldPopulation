@@ -4,44 +4,18 @@ final class DataModel: ObservableObject {
     @Published var domains: [DomainModel]
     
     init() {
-        guard let filepath = Bundle.main.path(forResource: "data", ofType: "csv")
-        else {
-            fatalError("Couldn't find data in the main bundle.")
-        }
-        
-        let data: String
-        do {
-            data = try String(contentsOfFile: filepath)
-        } catch {
-            fatalError("Couldn't convert file to string.")
-        }
-        
-        var rows = data.components(separatedBy: "\n")
-        rows.removeFirst(5)
-        rows.removeLast()
-        
-        domains = []
-        for row in rows {
-            let columns = row.components(separatedBy: ",")
-            var label = columns[0]
-            label.removeFirst()
-            label.removeLast()
-            for column in columns.reversed() {
-                if column.count < 2 {
-                    continue
-                }
-                var string = column
-                string.removeFirst()
-                string.removeLast()
-                if let population = UInt64(string) {
-                    domains.append(DomainModel(label: label, population: population))
-                    break
-                }
-            }
-        }
-        domains.sort { (a: DomainModel, b: DomainModel) -> Bool in
-            return a.population > b.population
-        }
-        print(domains)
+        domains = [
+            DomainModel(label: "World", population: 7752840550),
+            DomainModel(label: "China", population: 1402112000),
+            DomainModel(label: "India", population: 1380004390),
+            DomainModel(label: "United States", population: 329484120),
+            DomainModel(label: "Indonesia", population: 273523620),
+            DomainModel(label: "Pakistan", population: 220892330),
+            DomainModel(label: "Brazil", population: 212559410),
+            DomainModel(label: "Nigeria", population: 206139590),
+            DomainModel(label: "Bangladesh", population: 164689380),
+            DomainModel(label: "Russian Federation", population: 144104080),
+            DomainModel(label: "Mexico", population: 128932750)
+        ]
     }
 }
