@@ -9,7 +9,12 @@ struct ContentView: View {
             Text("Ten most popular countries")
                 .font(.subheadline)
                 .fontWeight(.regular)
+            
+            Spacer()
+            
             DomainsListView()
+            
+            Spacer()
         }
     }
 }
