@@ -15,5 +15,6 @@ struct BarView: View {
 struct BarView_Previews: PreviewProvider {
     static var previews: some View {
         BarView()
+            .frame(width: UIScreen.main.bounds.width, height: 30)
     }
 }

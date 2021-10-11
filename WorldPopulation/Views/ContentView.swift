@@ -3,14 +3,15 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
+            Spacer()
+            
             Text("World Population")
                 .font(.title)
                 .fontWeight(.bold)
             Text("Ten most popular countries")
                 .font(.subheadline)
                 .fontWeight(.regular)
-            
-            Spacer()
+                .padding(.bottom, 20)
             
             DomainsListView()
             

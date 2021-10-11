@@ -1,10 +1,17 @@
 import SwiftUI
 
 struct DomainRowView: View {
+    let numberFormatter = NumberFormatter()
+    
     var domain: DomainModel
     
     private var progress: Double {
         Double(domain.population) / Double(7752840550)
+    }
+    
+    init(domain: DomainModel) {
+        self.domain = domain
+        numberFormatter.numberStyle = .decimal
     }
     
     var body: some View {
@@ -26,7 +33,7 @@ struct DomainRowView: View {
                 .padding(0)
             
             HStack(spacing: 0) {
-                Text(String(domain.population))
+                Text(numberFormatter.string(from: NSNumber(value: domain.population))!)
                     .fontWeight(.bold)
                     .padding(.leading, 5)
                     .scaledToFill()
@@ -44,6 +51,6 @@ struct DomainRowView: View {
 
 struct DomainRowView_Previews: PreviewProvider {
     static var previews: some View {
-        DomainRowView(domain: DomainModel(label: "Russian Federation", population: 144104080))
+        DomainRowView(domain: DomainModel(label: "World", population: 7752840550))
     }
 }
