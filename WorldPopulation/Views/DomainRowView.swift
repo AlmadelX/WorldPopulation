@@ -51,5 +51,6 @@ struct DomainRowView: View {
 struct DomainRowView_Previews: PreviewProvider {
     static var previews: some View {
         DomainRowView(domain: DomainModel(label: "World", population: 7752840550))
+            .frame(height: 30)
     }
 }
