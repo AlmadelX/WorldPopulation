@@ -4,6 +4,7 @@ final class DataModel: ObservableObject {
     @Published var domains: [DomainModel]
     
     init() {
+        //hardcoded data
         domains = [
             DomainModel(label: "World", population: 7752840550),
             DomainModel(label: "China", population: 1402112000),

@@ -2,6 +2,7 @@ import SwiftUI
 
 struct DomainsListView: View {
     @EnvironmentObject var dataModel: DataModel
+    @Environment(\.verticalSizeClass) var heightSize
     
     var domains: [DomainModel] {
         Array(dataModel.domains[0..<11])
@@ -11,7 +12,7 @@ struct DomainsListView: View {
         VStack {
             ForEach(domains, id: \.label) { domain in
                 DomainRowView(domain: domain)
-                    .frame(width: UIScreen.main.bounds.width)
+                    .frame(width: UIScreen.main.bounds.width, height: heightSize == .regular ? 30: 20)
             }
         }
     }

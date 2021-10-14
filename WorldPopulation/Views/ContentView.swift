@@ -1,22 +1,30 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.verticalSizeClass) var heightSize
+    
     var body: some View {
         VStack {
-            Spacer()
-            
             Text("World Population")
                 .font(.title)
-                .fontWeight(.bold)
+                .fontWeight(.heavy)
             Text("Ten most popular countries")
                 .font(.subheadline)
-                .fontWeight(.regular)
-                .padding(.bottom, 20)
+                .fontWeight(.semibold)
+            
+            Group {
+                if heightSize == .regular {
+                    Spacer()
+                        .frame(height: 20)
+                } else {
+                    Spacer()
+                        .frame(width: 0)
+                }
+            }
             
             DomainsListView()
-            
-            Spacer()
         }
+        .padding(.vertical, 10)
     }
 }
 

@@ -45,7 +45,6 @@ struct DomainRowView: View {
             
             Spacer()
         }
-        .frame(height: 30)
     }
 }
 
